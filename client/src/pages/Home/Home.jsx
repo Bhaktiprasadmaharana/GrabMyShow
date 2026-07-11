@@ -1,11 +1,27 @@
+import MovieHero from "../../components/movie/MovieHero";
+import MovieSection from "../../components/movie/MovieSection";
+import { nowShowing, trending, comingSoon } from "../../constants/movies";
+
 function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        Welcome to GrabMyShow 🎬
-      </h1>
-    </main>
+    <>
+      <MovieHero />
+
+      <MovieSection
+        title="Now Showing"
+        movies={nowShowing}
+      />
+
+      <MovieSection
+        title="Trending"
+        movies={trending}
+      />
+
+      <MovieSection
+        title="Coming Soon"
+        movies={comingSoon}
+      />
+    </>
   );
 }
-
 export default Home;

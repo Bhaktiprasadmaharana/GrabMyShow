@@ -1,0 +1,41 @@
+.movie-section {
+    padding: 60px 80px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.section-header h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.view-all-btn {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.view-all-btn:hover {
+    color: white;
+}
+
+.movie-grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.movie-grid::-webkit-scrollbar {
+    display: none;
+}

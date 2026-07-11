@@ -1,0 +1,111 @@
+.navbar{
+    width:100%;
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.navbar-top{
+    display:flex;
+    justify-content:flex-start;
+    gap: 20px;
+    align-items:center;
+    padding:18px 30px;
+    gap:30px;
+}
+.logo a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:30px;
+    font-weight:700;
+}
+.logo{
+    flex-shrink:0;
+}
+.logo-white{
+    color:white;
+}
+.logo-red{
+    color:var(--primary);
+}
+.navbar-links{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    padding:14px 30px;
+    border-top:1px solid var(--border);
+}
+.navbar-links a{
+    color:var(--text-secondary);
+    font-size:16px;
+    font-weight:500;
+    transition:.3s;
+}
+.navbar-links a:hover{
+    color:var(--primary);
+}
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#0B0B0F;
+    height:38px;
+    padding:0 20px;
+    border-radius:50px;
+    width:100%;
+    max-width:650px;
+    border:1px solid var(--border);
+    flex:1;
+    margin:0 20px;
+}
+.search-box input{
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    width:100%;
+    font-size:15px;
+}
+.search-box input::placeholder{
+    color:var(--text-secondary);
+}
+.navbar-actions{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.navbar-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+.login-btn {
+    background: var(--primary);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+}
+.login-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+.login-btn svg {
+    font-size: 1rem;
+}
+.navbar-actions svg{
+    font-size:22px;
+    transition:.3s;
+}
+.navbar-actions svg:hover{
+    color:var(--primary);
+}

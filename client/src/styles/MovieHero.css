@@ -1,0 +1,123 @@
+.movie-hero{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+}
+.hero-right{
+    position: relative;
+    z-index: 2;
+}
+
+.movie-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.60) 0%,
+        rgba(0,0,0,.40) 45%,
+        rgba(0,0,0,.15) 100%
+    );
+    pointer-events:none;
+}
+
+.movie-hero-overlay{
+    background: transparent;
+}
+
+.hero-overlay{
+    width:100%;
+    height:100%;
+}
+
+.hero-content{
+    width:90%;
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:40px 0;
+}
+
+.hero-left{
+    width:58%;
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.hero-right{
+    width:28%;
+    height:420px;
+
+    background:#222;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:12px;
+}
+
+.hero-left h1{
+    font-size:4.5rem;
+    font-weight:700;
+    line-height:1.1;
+    color:#ffffff;
+}
+
+.rating{
+    color:#ffffff;
+}
+
+.genres{
+    font-size:20px;
+    color:#bbbbbb;
+}
+
+.description{
+    color:#e5e7eb;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+}
+
+.hero-buttons button{
+    padding:14px 28px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.hero-buttons button:first-child{
+    background:#E5484D;
+    color:white;
+}
+
+.hero-buttons button:last-child{
+    background:#2A2D34;
+    color:white;
+}
+.movie-poster{
+    width:300px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,.6);
+    object-fit:cover;
+}
