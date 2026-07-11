@@ -1,61 +1,86 @@
 # GrabMyShow Development Log
 
 ## Day 1
+
+### 1.1 Project Initialization
 - Created GitHub repository
 - Initialized project structure
-- Added client/server/docs folders
+- Added `client`, `server` and `docs` folders
 
 ---
 
-## Day 2
-
-### Project Setup
+### 1.2 Project Setup
 - Setup React with Vite
-- Installed Tailwind CSS v4
 - Installed React Router
 - Installed Axios
 - Installed React Icons
-
-### Frontend Architecture
-- Designed scalable folder structure
-- Created reusable project architecture
-- Configured AppRoutes
-- Configured MainLayout
+- Configured scalable folder structure
+- Configured routing architecture
+- Added MainLayout
 - Added Navbar and Footer
-- Configured nested routing
-- Created Home, Movies, Login and NotFound pages
-
-### Status
-✅ Frontend foundation completed
 
 ---
 
-## Day 3
-
-### Home Page UI
+### 1.3 Home Page Development
 - Built Hero Section
+- Integrated TMDB API
+- Added dynamic Hero Slider
+- Added smooth Swiper animations
+- Added custom navigation arrows
+- Added autoplay
+- Added mouse drag / trackpad support
+- Added pagination indicators
+
+---
+
+### 1.4 Movie Components
 - Built reusable MovieCard component
 - Built reusable MovieSection component
-- Added Now Showing section
-- Added Trending section
-- Added Coming Soon section
-- Added "View All" navigation
-- Added reusable dummy movie data
-- Created reusable CSS for Hero, MovieCard and MovieSection
-- Improved spacing, typography and dark theme
-- Prepared components for TMDB API integration
+- Added horizontal sliders
+- Added custom section navigation arrows
+- Added reusable CSS components
 
-### Project Structure
-- Added `movies.js` for dummy movie data
-- Added `MovieCard.css`
-- Added `MovieHero.css`
-- Added `MovieSection.css`
-- Organized reusable movie components
+---
+
+### 1.5 Movie Data Integration
+- Added Now Showing movies
+- Added Trending movies
+- Added Coming Soon movies
+- Removed duplicate movies between sections
+- Added dynamic genres
+- Added movie ratings
+- Added backdrop images
+- Added poster images
+
+---
+
+### 1.6 UI Improvements
+- Redesigned Navbar
+- Redesigned Footer
+- Improved Hero Section
+- Improved spacing and typography
+- Improved dark theme
+- Added responsive hero navigation
+- Added professional footer
+- Added hover animations
+- Improved overall UI consistency
+
+---
 
 ### Current Progress
-✅ Frontend UI completed
-✅ Home page completed (UI)
-⏳ TMDB API integration (Next)
-⏳ Movie Details page
+
+✅ Homepage completed
+
+✅ TMDB integration completed
+
+✅ Reusable movie components completed
+
+⏳ Movie Details Page
+
 ⏳ Authentication
+
 ⏳ Booking System
+
+⏳ Search Suggestions
+
+⏳ Wishlist Functionality
