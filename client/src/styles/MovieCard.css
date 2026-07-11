@@ -1,10 +1,14 @@
 .movie-card {
-    width: 240px;
-    background: #171717;
-    border-radius: 16px;
+    min-width: 220px;
+    max-width: 220px;
+    background: #1b1b1b;
+    border-radius: 14px;
     overflow: hidden;
     transition: 0.3s ease;
     cursor: pointer;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-card:hover {
@@ -20,6 +24,9 @@
 
 .movie-card-content {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .movie-rating {
@@ -31,27 +38,38 @@
 .movie-card-content h3 {
     color: white;
     font-size: 1.2rem;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    min-height: 50px;
 }
 
-.movie-card-content p {
+.movie-genre {
     color: #b8b8b8;
-    margin-bottom: 14px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.35;
+    min-height: 38px;
+    margin-bottom: 10px;
 }
 
-.movie-card-content button {
+.book-btn {
     width: 100%;
-    padding: 12px;
+    padding: 12px 0;
+    margin-top: auto;
+    flex-shrink: 0;
+
+    background: #f84464;
+    color: white;
+
     border: none;
     border-radius: 10px;
-    background: #ef4444;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .3s;
-}
 
-.movie-card-content button:hover {
-    background: #dc2626;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.book-btn:hover {
+    background: #ff5a77;
+    transform: translateY(-2px);
 }
