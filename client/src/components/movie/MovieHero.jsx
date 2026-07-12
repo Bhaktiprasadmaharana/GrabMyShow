@@ -62,7 +62,6 @@ function MovieHero({ movies = [], genres = [] }) {
                                                 <button onClick={() => navigate(`/movie/${movie.id}`)}>
                                                     Book Now
                                                 </button>
-                                                <button>Watch Trailer</button>
                                             </div>
                                         </div>
                                     </div>

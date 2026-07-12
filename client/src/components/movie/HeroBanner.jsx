@@ -18,7 +18,6 @@ function HeroBanner() {
           </p>
           <div className="hero-buttons">
             <button>🎟 Book Now</button>
-            <button>▶ Watch Trailer</button>
           </div>
         </div>
       </div>

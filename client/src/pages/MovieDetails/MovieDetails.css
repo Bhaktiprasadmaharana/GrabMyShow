@@ -1,0 +1,160 @@
+.movie-details {
+    min-height: 100vh;
+    background: var(--background, #0f1115);
+    color: #fff;
+}
+
+.movie-details-hero {
+    position: relative;
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.movie-details-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+        to top,
+        rgba(15, 17, 21, 1),
+        rgba(15, 17, 21, 0.75),
+        rgba(15, 17, 21, 0.2)
+    );
+    padding: 60px 8%;
+}
+
+.movie-details-content {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 40px;
+}
+
+.movie-poster {
+    width: 280px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    animation: posterPop .5s ease;
+}
+
+.movie-poster img {
+    width: 100%;
+    display: block;
+}
+
+.movie-info {
+    max-width: 700px;
+}
+
+.movie-info h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.movie-meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+}
+
+.movie-genres {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.movie-genres span {
+    background: rgba(255,255,255,0.08);
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+
+.movie-overview {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.movie-actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background-color .25s ease;
+}
+
+.movie-actions button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.movie-actions button:active {
+    transform: scale(.97);
+}
+
+@media (max-width: 768px) {
+    .movie-details-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-poster {
+        width: 220px;
+    }
+
+    .movie-info h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.movie-details {
+    animation: fadeUp .45s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cast-section,
+.similar-movies-section {
+    animation: fadeUp .6s ease;
+}
+
+@keyframes posterPop {
+    from {
+        opacity: 0;
+        transform: scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

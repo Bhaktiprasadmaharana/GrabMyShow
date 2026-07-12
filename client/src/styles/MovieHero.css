@@ -107,13 +107,8 @@
 .hero-buttons button:active {
     transform: scale(0.96);
 }
-.hero-buttons button:first-child{
+.hero-buttons button{
     background:#E5484D;
-    color:white;
-}
-
-.hero-buttons button:last-child{
-    background:#2A2D34;
     color:white;
 }
 
@@ -195,11 +190,8 @@
     border-color: #E5484D;
     transform: translateY(-50%) scale(1.08);
 }
-.hero-buttons button:first-child:hover{
+.hero-buttons button:hover{
     background:#ff5b61;
-}
-.hero-buttons button:last-child:hover{
-    background:#3a3f48;
 }
 .hero-prev svg,
 .hero-next svg {

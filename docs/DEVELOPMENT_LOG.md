@@ -75,12 +75,79 @@
 
 ✅ Reusable movie components completed
 
-⏳ Movie Details Page
+✅ Movie Details Page (Phase 1) completed
+- Dynamic movie details page
+- Cast section
+- Similar movies section
+- Trailer modal with YouTube integration
+- Loading skeletons
+- Scroll-to-top on movie navigation
+- Smooth page transitions
+- Responsive UI improvements
 
-⏳ Authentication
+---
 
-⏳ Booking System
+## Day 2
 
-⏳ Search Suggestions
+### 2.1 Movie Details Improvements
+- Connected movie cards to Movie Details page
+- Added dynamic routing for every movie
+- Added reusable MovieHero component
+- Improved movie information layout
+- Added cast section
+- Added similar movies section
+- Added trailer modal
+- Improved trailer selection logic
+- Added loading skeleton for Movie Details page
+- Added smooth loading experience
+- Added automatic scroll-to-top when navigating between movies
 
-⏳ Wishlist Functionality
+---
+
+### 2.2 UI & UX Improvements
+- Removed unnecessary Watch Trailer button from Home Hero
+- Improved Hero button styling
+- Fixed section navigation behavior
+- Improved page animations
+- Improved responsive spacing
+- Cleaned reusable component structure
+- Refactored movie components
+
+---
+
+### 2.3 Project Cleanup
+- Removed duplicate components
+- Organized reusable movie components
+- Cleaned trailer logic
+- Improved folder structure
+- Fixed routing issues
+- Fixed navigation issues
+- Added better loading experience
+
+---
+
+### Next Milestones
+
+🔐 Authentication System (Next)
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Routes
+- Auth Context
+- Persistent Login
+
+🎟 Ticket Booking System
+- Theatre Selection
+- Show Time Selection
+- Seat Selection
+- Booking Summary
+- Payment Integration
+- Ticket Generation
+
+❤️ Wishlist
+
+🔍 Search Suggestions
+
+👤 User Profile
+
+📜 Booking History

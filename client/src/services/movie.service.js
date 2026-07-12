@@ -67,3 +67,47 @@ export const searchMovies = async (query) => {
 
   return response.data.results;
 };
+
+export const getMovieDetails = async (movieId) => {
+  const response = await api.get(`/movie/${movieId}`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: "en-US",
+    },
+  });
+
+  return response.data;
+};
+
+export const getMovieCredits = async (movieId) => {
+  const response = await api.get(`/movie/${movieId}/credits`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: "en-US",
+    },
+  });
+
+  return response.data.cast;
+};
+
+export const getMovieVideos = async (movieId) => {
+  const response = await api.get(`/movie/${movieId}/videos`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: "en-US",
+    },
+  });
+
+  return response.data.results;
+};
+
+export const getSimilarMovies = async (movieId) => {
+  const response = await api.get(`/movie/${movieId}/similar`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: "en-US",
+    },
+  });
+
+  return response.data.results;
+};
