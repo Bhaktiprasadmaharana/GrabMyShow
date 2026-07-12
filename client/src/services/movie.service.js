@@ -40,3 +40,30 @@ export const getUpcomingMovies = async (page = 1) => {
 
     return response.data.results;
 };
+export const getBollywoodMovies = async (page = 1) => {
+  const response = await api.get("/discover/movie", {
+    params: {
+      api_key: TMDB_API_KEY,
+      with_original_language: "hi",
+      sort_by: "popularity.desc",
+      page,
+    },
+  });
+
+  return response.data.results;
+};
+
+export const searchMovies = async (query) => {
+  if (!query.trim()) return [];
+
+  const response = await api.get("/search/movie", {
+    params: {
+      api_key: TMDB_API_KEY,
+      query,
+      include_adult: false,
+      language: "en-US",
+    },
+  });
+
+  return response.data.results;
+};

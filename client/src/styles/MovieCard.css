@@ -4,15 +4,19 @@
     background: #1b1b1b;
     border-radius: 14px;
     overflow: hidden;
-    transition: 0.3s ease;
     cursor: pointer;
     min-height: 540px;
     display: flex;
     flex-direction: column;
+    will-change: transform;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .movie-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .movie-card-image {
@@ -20,6 +24,12 @@
     height: 340px;
     object-fit: cover;
     display: block;
+}
+.movie-card-image {
+    transition: transform 0.4s ease;
+}
+.movie-card:hover .movie-card-image {
+    transform: scale(1.05);
 }
 
 .movie-card-content {

@@ -3,12 +3,14 @@ import { TMDB_IMAGE_URL } from "../../constants/api";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Mousewheel } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function MovieHero({ movies = [], genres = [] }) {
+    const navigate = useNavigate();
     if (!movies.length) return null;
 
     return (
@@ -46,7 +48,7 @@ function MovieHero({ movies = [], genres = [] }) {
                             <section
                                 className="movie-hero"
                                 style={{
-                                    backgroundImage: `url(${TMDB_IMAGE_URL}${movie.backdrop_path})`,
+                                    backgroundImage: `url(${TMDB_IMAGE_URL}/original${movie.backdrop_path})`,
                                 }}
                             >
                                 <div className="hero-overlay">
@@ -57,7 +59,9 @@ function MovieHero({ movies = [], genres = [] }) {
                                             <p className="genres">{movieGenres}</p>
                                             <p className="description">{movie.overview}</p>
                                             <div className="hero-buttons">
-                                                <button>Book Now</button>
+                                                <button onClick={() => navigate(`/movie/${movie.id}`)}>
+                                                    Book Now
+                                                </button>
                                                 <button>Watch Trailer</button>
                                             </div>
                                         </div>

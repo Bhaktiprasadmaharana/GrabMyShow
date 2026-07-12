@@ -1,0 +1,107 @@
+
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #20232a 25%,
+        #2d313b 50%,
+        #20232a 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Movie Card Skeleton */
+.skeleton-card {
+    overflow: hidden;
+}
+
+.skeleton-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px 12px 0 0;
+}
+
+.skeleton-rating {
+    width: 60px;
+    height: 14px;
+    margin: 12px 0;
+}
+
+.skeleton-title {
+    width: 80%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.skeleton-text {
+    width: 65%;
+    height: 14px;
+    margin-bottom: 18px;
+}
+
+.skeleton-button {
+    width: 100%;
+    height: 42px;
+    border-radius: 10px;
+}
+
+/* Hero Skeleton */
+.hero-skeleton {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+}
+
+.skeleton-hero-title {
+    width: 320px;
+    height: 60px;
+    margin: 18px 0;
+}
+
+.skeleton-genres {
+    width: 220px;
+    height: 18px;
+    margin-bottom: 18px;
+}
+
+.skeleton-description {
+    width: 500px;
+    max-width: 100%;
+    height: 16px;
+    margin-bottom: 12px;
+}
+
+.skeleton-description.short {
+    width: 380px;
+    margin-bottom: 28px;
+}
+
+/* Movie Section Skeleton */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.skeleton-link {
+    width: 80px;
+    height: 16px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+}

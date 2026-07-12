@@ -1,0 +1,38 @@
+.empty-state{
+    min-height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.empty-icon{
+    font-size:64px;
+    margin-bottom:20px;
+}
+
+.empty-state h2{
+    color:#fff;
+    margin-bottom:12px;
+    font-size:2rem;
+    animation: fadeIn .4s ease;
+}
+
+.empty-state p{
+    color:var(--text-secondary);
+    max-width:420px;
+    font-size:1rem;
+    line-height:1.7;
+}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

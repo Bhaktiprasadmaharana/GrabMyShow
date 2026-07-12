@@ -9,6 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 700px;
+    animation: heroFade 0.8s ease;
 }
 
 .hero-content{
@@ -21,6 +22,7 @@
     padding: 0 80px;
     display: flex;
     align-items: center;
+    animation: fadeUp 0.7s ease;
 }
 
 .movie-hero::before{
@@ -93,9 +95,18 @@
     font-size:16px;
     font-weight:600;
     cursor:pointer;
-    transition:0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
 }
-
+.hero-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+.hero-buttons button:active {
+    transform: scale(0.96);
+}
 .hero-buttons button:first-child{
     background:#E5484D;
     color:white;
@@ -184,7 +195,12 @@
     border-color: #E5484D;
     transform: translateY(-50%) scale(1.08);
 }
-
+.hero-buttons button:first-child:hover{
+    background:#ff5b61;
+}
+.hero-buttons button:last-child:hover{
+    background:#3a3f48;
+}
 .hero-prev svg,
 .hero-next svg {
     transition: transform .3s ease;
@@ -198,4 +214,24 @@
 .swiper-button-prev,
 .swiper-button-next {
     display: none !important;
+}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes heroFade {
+    from{
+        opacity:0.85;
+        transform:scale(1.03);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }

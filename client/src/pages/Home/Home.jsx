@@ -1,37 +1,76 @@
 import { useEffect, useState } from "react";
 import MovieHero from "../../components/movie/MovieHero";
 import MovieSection from "../../components/movie/MovieSection";
+import { getMovieGenres } from "../../services/genre.service";
+import HeroSkeleton from "../../components/skeleton/HeroSkeleton";
+import MovieSectionSkeleton from "../../components/skeleton/MovieSectionSkeleton";
+import "../../styles/Skeleton.css";
+import ErrorScreen from "../../components/common/ErrorScreen";
+import "../../styles/ErrorScreen.css";
+
 import {
   getNowPlayingMovies,
   getTrendingMovies,
   getUpcomingMovies,
+  getBollywoodMovies,
 } from "../../services/movie.service";
-import { getMovieGenres } from "../../services/genre.service";
-
+function shuffleArray(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
 function Home() {
+  const [heroMovies, setHeroMovies] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [trending, setTrending] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    async function fetchData() {
-      const [now, trend, upcomingData, genreData] = await Promise.all([
-        getNowPlayingMovies(),
-        getTrendingMovies(),
-        getUpcomingMovies(),
-        getMovieGenres(),
-      ]);
+  const fetchData = async () => {
+    try {
+      const [now, trend, upcomingData, bollywoodData, genreData] =
+        await Promise.all([
+          getNowPlayingMovies(),
+          getTrendingMovies(),
+          getUpcomingMovies(),
+          getBollywoodMovies(),
+          getMovieGenres(),
+        ]);
 
-      setNowPlaying(now.results || now);
+      const hollywood = now.results || now;
+      const bollywood = bollywoodData.results || bollywoodData;
+
+      const mixedNowPlaying = [...hollywood, ...bollywood];
+
+      const uniqueMovies = mixedNowPlaying.filter(
+        (movie, index, self) =>
+          index === self.findIndex((m) => m.id === movie.id)
+      );
+
+      const moviesWithPoster = uniqueMovies.filter(
+        (movie) => movie.poster_path
+      );
+
+      const heroMovieList = uniqueMovies.filter(
+        (movie) => movie.poster_path && movie.backdrop_path
+      );
+
+      setNowPlaying(shuffleArray(moviesWithPoster));
+      setHeroMovies(shuffleArray(heroMovieList));
       setTrending(trend.results || trend);
       setUpcoming(upcomingData.results || upcomingData);
       setGenres(genreData);
+      setLoading(false);
+    } catch (error) {
+      console.error("Failed to load homepage data:", error);
+      setLoading(false);
+      setError(true);
     }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
-
   const filteredTrending = trending.filter(
     (movie) => !nowPlaying.some((nowMovie) => nowMovie.id === movie.id)
   );
@@ -42,10 +81,34 @@ function Home() {
       !filteredTrending.some((trendMovie) => trendMovie.id === movie.id)
   );
 
+  if (loading) {
+    return (
+      <>
+        <HeroSkeleton />
+        <MovieSectionSkeleton />
+        <MovieSectionSkeleton />
+        <MovieSectionSkeleton />
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorScreen
+        message="Unable to load movies. Please check your internet connection and try again."
+        onRetry={() => {
+          setError(false);
+          setLoading(true);
+          fetchData();
+        }}
+      />
+    );
+  }
+
   return (
     <>
-      {nowPlaying.length > 0 && (
-        <MovieHero movies={nowPlaying} genres={genres} />
+      {heroMovies.length > 0 && (
+        <MovieHero movies={heroMovies} genres={genres} />
       )}
 
       <MovieSection

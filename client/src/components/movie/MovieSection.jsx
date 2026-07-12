@@ -1,10 +1,22 @@
 import "../../styles/MovieSection.css";
 import MovieCard from "./MovieCard";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function MovieSection({ title, movies = [], genres = [] }) {
   const sliderRef = useRef(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
+
+  const updateArrows = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    setShowLeft(slider.scrollLeft > 0);
+    setShowRight(
+      slider.scrollLeft + slider.clientWidth < slider.scrollWidth - 5
+    );
+  };
 
   const scrollLeft = () => {
     sliderRef.current?.scrollBy({
@@ -20,6 +32,21 @@ function MovieSection({ title, movies = [], genres = [] }) {
     });
   };
 
+  useEffect(() => {
+    updateArrows();
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    slider.addEventListener("scroll", updateArrows);
+    window.addEventListener("resize", updateArrows);
+
+    return () => {
+      slider.removeEventListener("scroll", updateArrows);
+      window.removeEventListener("resize", updateArrows);
+    };
+  }, [movies]);
+
   return (
     <section className="movie-section">
       <div className="section-header">
@@ -28,9 +55,11 @@ function MovieSection({ title, movies = [], genres = [] }) {
       </div>
 
       <div className="movie-slider-wrapper">
-        <button className="slider-btn left" onClick={scrollLeft}>
-          <FaChevronLeft />
-        </button>
+        {showLeft && (
+          <button className="slider-btn left" onClick={scrollLeft}>
+            <FaChevronLeft />
+          </button>
+        )}
 
         <div className="movie-grid" ref={sliderRef}>
           {movies.map((movie) => (
@@ -42,9 +71,11 @@ function MovieSection({ title, movies = [], genres = [] }) {
           ))}
         </div>
 
-        <button className="slider-btn right" onClick={scrollRight}>
-          <FaChevronRight />
-        </button>
+        {showRight && (
+          <button className="slider-btn right" onClick={scrollRight}>
+            <FaChevronRight />
+          </button>
+        )}
       </div>
     </section>
   );
