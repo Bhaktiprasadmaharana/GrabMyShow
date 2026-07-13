@@ -5,6 +5,12 @@ import {
   FaSearch,
   FaUser
 } from "react-icons/fa";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 import { useEffect, useState } from "react";
 import { searchMovies } from "../../services/movie.service";
@@ -107,10 +113,29 @@ movies.forEach((movie) => {
           <Link to="/wishlist">
             <FaHeart />
           </Link>
-          <Link to="/login" className="login-btn">
-            <FaUser />
-            Login
-          </Link>
+
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="login-btn">
+                <FaUser />
+                Login
+              </button>
+            </SignInButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton
+              afterSignOutUrl="/"
+              appearance={{
+                elements: {
+                  avatarBox: {
+                    width: '40px',
+                    height: '40px'
+                  }
+                }
+              }}
+            />
+          </SignedIn>
         </div>
       </nav>
       <div className="navbar-links">
