@@ -89,65 +89,162 @@
 
 ## Day 2
 
-### 2.1 Movie Details Improvements
-- Connected movie cards to Movie Details page
-- Added dynamic routing for every movie
-- Added reusable MovieHero component
-- Improved movie information layout
-- Added cast section
-- Added similar movies section
-- Added trailer modal
-- Improved trailer selection logic
-- Added loading skeleton for Movie Details page
-- Added smooth loading experience
-- Added automatic scroll-to-top when navigating between movies
+### 2.1 Authentication System
+- Integrated Clerk Authentication
+- Added Google Sign-In
+- Added Sign In modal
+- Added Sign Up modal
+- Replaced custom authentication pages with Clerk components
+- Display logged-in user avatar
+- Added Sign Out functionality
+- Protected authenticated user flow
 
 ---
 
-### 2.2 UI & UX Improvements
-- Removed unnecessary Watch Trailer button from Home Hero
-- Improved Hero button styling
-- Fixed section navigation behavior
-- Improved page animations
-- Improved responsive spacing
-- Cleaned reusable component structure
-- Refactored movie components
+### 2.2 Backend Integration
+- Connected Express backend with MongoDB Atlas
+- Created User model
+- Created Clerk webhook endpoint
+- Implemented `user.created` webhook
+- Implemented `user.updated` webhook
+- Implemented `user.deleted` webhook
+- Added Svix webhook verification
+- Automatically save users to MongoDB
+- Automatically update users in MongoDB
+- Automatically delete users from MongoDB
 
 ---
 
-### 2.3 Project Cleanup
-- Removed duplicate components
-- Organized reusable movie components
-- Cleaned trailer logic
-- Improved folder structure
-- Fixed routing issues
-- Fixed navigation issues
-- Added better loading experience
+### 2.3 Deployment
+- Deployed backend to Render
+- Connected Render with MongoDB Atlas
+- Configured production environment variables
+- Updated MongoDB Atlas Network Access
+- Verified production backend deployment
+- Verified Clerk webhooks on production
+- Backend API running successfully on Render
 
 ---
 
-### Next Milestones
+### Current Progress
 
-🔐 Authentication System (Next)
-- User Registration
-- User Login
-- JWT Authentication
-- Protected Routes
-- Auth Context
-- Persistent Login
+✅ Homepage completed
 
-🎟 Ticket Booking System
-- Theatre Selection
-- Show Time Selection
-- Seat Selection
-- Booking Summary
-- Payment Integration
-- Ticket Generation
+✅ Movie Details Page completed
 
-❤️ Wishlist
+✅ Authentication System completed
 
-🔍 Search Suggestions
+✅ Backend deployed on Render
 
-👤 User Profile
+✅ MongoDB Atlas connected
 
-📜 Booking History
+✅ Clerk Authentication completed
+
+✅ Clerk Webhooks completed
+
+✅ User synchronization with MongoDB completed
+
+---
+
+
+## Day 3
+
+### 3.1 Booking System Foundation
+- Created Booking page
+- Connected Movie Details page with Booking page
+- Passed selected movie data using React Router
+- Integrated theatre data from MongoDB
+- Implemented dynamic city selection
+- Filter theatres by selected city
+- Display available shows for each theatre
+
+---
+
+### 3.2 Booking Page UI Redesign
+- Redesigned booking page inspired by BookMyShow
+- Added compact movie information header
+- Display dynamic movie title
+- Display rating, runtime, language and format
+- Added genre pills
+- Added responsive booking toolbar
+- Added dynamic 7-day date selector
+- Added language filter
+- Added time filter
+- Added availability legend
+- Improved theatre cards
+- Improved showtime buttons
+- Added booking footer with change location option
+- Improved responsive layout and spacing
+
+---
+
+### 3.3 Language & Format Selection
+- Added BookMyShow-style Language & Format modal
+- Added language selection (English / Hindi)
+- Added format selection (2D / IMAX / 3D)
+- Passed selected language to Booking page
+- Passed selected format to Booking page
+- Display selected language in booking header
+- Display selected format in booking header
+
+---
+
+### 3.4 UI Improvements
+- Removed unused hero banner from Booking page
+- Simplified booking flow
+- Improved typography
+- Improved reusable CSS
+- Removed unused CSS
+- Optimized responsive design
+
+---
+
+### Current Progress
+
+✅ Homepage completed
+
+✅ Movie Details Page completed
+
+✅ Authentication System completed
+
+✅ Backend deployed on Render
+
+✅ MongoDB Atlas connected
+
+✅ Clerk Authentication completed
+
+✅ Clerk Webhooks completed
+
+✅ User synchronization with MongoDB completed
+
+✅ Booking Page completed (Phase 1)
+- Dynamic booking flow
+- City selection
+- Theatre listing
+- Language & format selection
+- BookMyShow-inspired UI
+
+---
+
+## Next Milestones
+
+### Phase 4 — Seat Booking Experience
+
+💺 Seat Selection
+- Dynamic theatre seat layouts
+- Multiple seat categories (Recliner, Prime, Classic)
+- Seat availability
+- Seat locking timer
+- Live booking summary
+- Dynamic pricing
+- Proceed to payment
+
+💳 Payment
+- Razorpay integration
+- Booking confirmation
+
+🎫 Ticket Generation
+- QR code ticket
+- Email confirmation
+- Booking history
+- Download ticket

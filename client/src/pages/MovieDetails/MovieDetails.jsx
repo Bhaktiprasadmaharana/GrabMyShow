@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CastSection from "./CastSection";
 import TrailerModal from "../../components/movie/TrailerModal";
 import SimilarMovies from "./SimilarMovies";
@@ -16,6 +16,7 @@ import "./MovieDetails.css";
 
 function MovieDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
@@ -23,6 +24,9 @@ function MovieDetails() {
   const [similarMovies, setSimilarMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+  const [showVersionModal, setShowVersionModal] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedFormat, setSelectedFormat] = useState("2D");
 
   useEffect(() => {
     window.scrollTo({
@@ -97,7 +101,9 @@ function MovieDetails() {
               <p className="movie-overview">{movie.overview}</p>
 
               <div className="movie-actions">
-                <button>🎟 Book Tickets</button>
+                <button onClick={() => setShowVersionModal(true)}>
+                  🎟 Book Tickets
+                </button>
                 <button onClick={() => setIsTrailerOpen(true)}>
                     ▶ Watch Trailer
                 </button>
@@ -108,6 +114,60 @@ function MovieDetails() {
       </section>
       <CastSection cast={cast} />
       <SimilarMovies movies={similarMovies} />
+      {showVersionModal && (
+        <div className="version-modal-overlay">
+          <div className="version-modal">
+            <h2>Select Language & Format</h2>
+
+            <div className="version-section">
+              <h4>Language</h4>
+              <div className="version-options">
+                {["English", "Hindi"].map((lang) => (
+                  <button
+                    key={lang}
+                    type="button"
+                    className={`version-option ${selectedLanguage === lang ? "active" : ""}`}
+                    onClick={() => setSelectedLanguage(lang)}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="version-section">
+              <h4>Format</h4>
+              <div className="version-options">
+                {["2D", "IMAX", "3D"].map((format) => (
+                  <button
+                    key={format}
+                    type="button"
+                    className={`version-option ${selectedFormat === format ? "active" : ""}`}
+                    onClick={() => setSelectedFormat(format)}
+                  >
+                    {format}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button
+              className="version-continue"
+              onClick={() =>
+                navigate(`/book/${id}`, {
+                  state: {
+                    movie,
+                    language: selectedLanguage,
+                    format: selectedFormat,
+                  },
+                })
+              }
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
       <TrailerModal
         videos={videos}
         isOpen={isTrailerOpen}

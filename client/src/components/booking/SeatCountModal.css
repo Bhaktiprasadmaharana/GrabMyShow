@@ -1,0 +1,62 @@
+.seat-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.seat-modal{
+    width:520px;
+    background:#1d1d25;
+    color:white;
+    border-radius:18px;
+    padding:30px;
+}
+
+.seat-modal h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.seat-number-list{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.seat-number-list button{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+}
+
+.seat-number-list .active{
+    background:#ff4d6d;
+    color:white;
+}
+
+.seat-pricing{
+    margin:30px 0;
+    display:flex;
+    justify-content:space-around;
+}
+
+.seat-buttons{
+    display:flex;
+    justify-content:space-between;
+}
+
+.continue-btn{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:10px 22px;
+    border-radius:8px;
+    cursor:pointer;
+}

@@ -8,12 +8,13 @@ import "../../styles/Skeleton.css";
 import ErrorScreen from "../../components/common/ErrorScreen";
 import "../../styles/ErrorScreen.css";
 
+
 import {
   getNowPlayingMovies,
-  getTrendingMovies,
+  getPopularMovies,
   getUpcomingMovies,
-  getBollywoodMovies,
-} from "../../services/movie.service";
+  getIndianMovies,
+} from "../../api/movie.api";
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
@@ -22,49 +23,48 @@ function Home() {
   const [nowPlaying, setNowPlaying] = useState([]);
   const [trending, setTrending] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [indianMovies, setIndianMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const fetchData = async () => {
     try {
-      const [now, trend, upcomingData, bollywoodData, genreData] =
-        await Promise.all([
-          getNowPlayingMovies(),
-          getTrendingMovies(),
-          getUpcomingMovies(),
-          getBollywoodMovies(),
-          getMovieGenres(),
-        ]);
+      const now = await getNowPlayingMovies();
+      const popular = await getPopularMovies();
+      const upcomingData = await getUpcomingMovies();
+      const indianData = await getIndianMovies();
+      const genreData = await getMovieGenres();
+      const nowMovies = now.movies || now;
+      const popularMovies = popular.movies || popular;
+      const upcomingMovies = upcomingData.movies || upcomingData;
+      const indianMovieList = indianData.movies || indianData;
+      setTrending(popularMovies);
 
-      const hollywood = now.results || now;
-      const bollywood = bollywoodData.results || bollywoodData;
+      console.log("Now Playing loaded");
 
-      const mixedNowPlaying = [...hollywood, ...bollywood];
-
-      const uniqueMovies = mixedNowPlaying.filter(
-        (movie, index, self) =>
-          index === self.findIndex((m) => m.id === movie.id)
-      );
-
-      const moviesWithPoster = uniqueMovies.filter(
+      const moviesWithPoster = nowMovies.filter(
         (movie) => movie.poster_path
       );
 
-      const heroMovieList = uniqueMovies.filter(
+      const heroMovieList = nowMovies.filter(
         (movie) => movie.poster_path && movie.backdrop_path
       );
 
-      setNowPlaying(shuffleArray(moviesWithPoster));
-      setHeroMovies(shuffleArray(heroMovieList));
-      setTrending(trend.results || trend);
-      setUpcoming(upcomingData.results || upcomingData);
+      setNowPlaying(moviesWithPoster);
+      setHeroMovies(heroMovieList);
+
+      setTrending(popularMovies);
+      setUpcoming(upcomingMovies);
+      setIndianMovies(indianMovieList);
       setGenres(genreData);
+
+      setError(false);
       setLoading(false);
     } catch (error) {
       console.error("Failed to load homepage data:", error);
-      setLoading(false);
       setError(true);
+      setLoading(false);
     }
   };
 
@@ -114,6 +114,12 @@ function Home() {
       <MovieSection
         title="Now Showing"
         movies={nowPlaying}
+        genres={genres}
+      />
+
+      <MovieSection
+        title="🇮🇳 Popular in India"
+        movies={indianMovies}
         genres={genres}
       />
 

@@ -33,9 +33,9 @@
 }
 
 .skeleton-rating {
-    width: 60px;
-    height: 14px;
-    margin: 12px 0;
+    width: 72px;
+    height: 18px;
+    margin: 0 0 20px;
 }
 
 .skeleton-title {
@@ -51,40 +51,90 @@
 }
 
 .skeleton-button {
-    width: 100%;
-    height: 42px;
-    border-radius: 10px;
+    width: 170px;
+    height: 48px;
+    border-radius: 12px;
 }
 
 /* Hero Skeleton */
 .hero-skeleton {
-    min-height: 560px;
+    min-height: 78vh;
     display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 8%;
+    background: linear-gradient(135deg, #0b0b0f 0%, #171a22 45%, #0b0b0f 100%);
+}
+
+.hero-skeleton::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 50%, rgba(255,255,255,0.08), transparent 45%);
+}
+
+.hero-skeleton .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-skeleton-poster {
+    width: 40%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
+.hero-skeleton-poster .skeleton-poster {
+    width: 380px;
+    height: 560px;
+    border-radius: 24px;
+    aspect-ratio: auto;
+}
+
 .skeleton-hero-title {
-    width: 320px;
-    height: 60px;
-    margin: 18px 0;
+    width: 420px;
+    max-width: 90%;
+    height: 58px;
+    margin-bottom: 14px;
+}
+
+.skeleton-hero-title.short {
+    width: 280px;
+    height: 58px;
+    margin-bottom: 24px;
 }
 
 .skeleton-genres {
-    width: 220px;
+    width: 260px;
     height: 18px;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
 }
 
 .skeleton-description {
-    width: 500px;
+    width: 620px;
     max-width: 100%;
-    height: 16px;
-    margin-bottom: 12px;
+    height: 15px;
+    margin-bottom: 14px;
 }
 
 .skeleton-description.short {
-    width: 380px;
-    margin-bottom: 28px;
+    width: 420px;
+    margin-bottom: 34px;
 }
 
 /* Movie Section Skeleton */
@@ -232,6 +282,29 @@
     }
 
     .skeleton-buttons .skeleton-button {
+        width: 100%;
+    }
+
+    .hero-overlay {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hero-skeleton .hero-content,
+    .hero-skeleton-poster {
+        width: 100%;
+    }
+
+    .hero-skeleton-poster {
+        display: none;
+    }
+
+    .skeleton-hero-title {
+        width: 90%;
+    }
+
+    .skeleton-description,
+    .skeleton-description.short {
         width: 100%;
     }
 }

@@ -1,19 +1,26 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+import "dotenv/config";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/user.routes.js";
+import movieRoutes from "./routes/movie.routes.js";
 
-dotenv.config();
+import showRoutes from "./routes/show.routes.js";
+import theatreRoutes from "./routes/theatre.routes.js";
+
 
 const app = express();
 
 app.use(cors());
-// Clerk webhook must receive the raw request body
-app.use("/api/users", userRoutes);
 
-// Parse JSON for all other routes
+// Parse JSON for API requests
 app.use(express.json());
+
+// Routes
+app.use("/api/movies", movieRoutes);
+app.use("/api/shows", showRoutes);
+app.use("/api/theatres", theatreRoutes);
+app.use("/api/users", userRoutes);
 
 connectDB();
 
