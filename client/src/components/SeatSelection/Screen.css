@@ -1,0 +1,30 @@
+.screen-wrapper {
+  margin: 70px 0 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen-shadow {
+  width: 90%;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,.35),
+    rgba(255,255,255,0)
+  );
+  filter: blur(12px);
+}
+
+.screen {
+  width: 80%;
+  padding: 16px 0;
+  text-align: center;
+  background: linear-gradient(to bottom,#ffffff,#d7d7d7);
+  color: #111;
+  font-weight: 700;
+  letter-spacing: 8px;
+  border-radius: 120px 120px 20px 20px;
+  box-shadow: 0 15px 40px rgba(255,255,255,.15);
+}

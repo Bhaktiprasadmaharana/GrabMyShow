@@ -1,0 +1,39 @@
+.seat{
+    width:38px;
+    height:38px;
+    border-radius:8px;
+    font-size:12px;
+    cursor:pointer;
+    transition:.2s;
+    border:1.5px solid;
+}
+
+.available{
+    background:transparent;
+    color:#22c55e;
+    border-color:#22c55e;
+}
+
+.available:hover{
+    background:#22c55e;
+    color:white;
+}
+
+.selected{
+    background:#22c55e;
+    color:white;
+    border-color:#22c55e;
+}
+
+.booked{
+    background:#4b5563;
+    color:#d1d5db;
+    border-color:#4b5563;
+    cursor:not-allowed;
+    opacity:0.85;
+}
+
+.booked:hover{
+    background:#4b5563;
+    color:#d1d5db;
+}

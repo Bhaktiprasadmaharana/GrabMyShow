@@ -1,0 +1,121 @@
+.payment-page{
+    min-height:100vh;
+    background:#0d0d10;
+    color:#fff;
+    padding:120px 24px 60px;
+}
+
+.payment-container{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.payment-container h1{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:40px;
+    font-weight:700;
+}
+
+.payment-card{
+    background:#18181f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.payment-card h2{
+    font-size:1.35rem;
+    margin-bottom:24px;
+    color:#fff;
+}
+
+.payment-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    color:#d1d5db;
+}
+
+.payment-row:last-child{
+    border-bottom:none;
+}
+
+.payment-row span:last-child{
+    color:#fff;
+    font-weight:600;
+}
+
+.payment-row.total{
+    margin-top:14px;
+    padding-top:18px;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+.payment-row.total span:last-child{
+    color:#ff4d6d;
+    font-size:1.4rem;
+}
+
+.payment-card label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    margin-bottom:12px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.payment-card label:hover{
+    background:#22222c;
+}
+
+.payment-card input[type="radio"]{
+    accent-color:#ff4d6d;
+}
+
+.pay-btn{
+    width:100%;
+    margin-top:28px;
+    height:56px;
+    border:none;
+    border-radius:12px;
+    background:#ff4d6d;
+    color:#fff;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.pay-btn:hover{
+    background:#ff2d55;
+    transform:translateY(-2px);
+}
+
+@media (max-width:768px){
+
+    .payment-page{
+        padding:100px 16px 40px;
+    }
+
+    .payment-container h1{
+        font-size:2rem;
+    }
+
+    .payment-card{
+        padding:20px;
+    }
+
+    .payment-row{
+        font-size:.95rem;
+    }
+}

@@ -44,10 +44,20 @@ const SeatCountModal = ({
         </div>
 
         <div className="seat-buttons">
-          <button onClick={onClose}>Cancel</button>
+          <button
+            className="cancel-btn"
+            onClick={onClose}
+            type="button"
+          >
+            <span className="btn-label">Cancel</span>
+          </button>
 
-          <button className="continue-btn" onClick={onContinue}>
-            Continue
+          <button
+            className="continue-btn"
+            onClick={onContinue}
+            type="button"
+          >
+            <span>Continue</span>
           </button>
         </div>
       </div>

@@ -1,0 +1,138 @@
+.seat-selection-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(255,77,109,.08), transparent 30%),
+    radial-gradient(circle at top left, rgba(59,130,246,.06), transparent 25%),
+    #0b0b0f;
+  color: #fff;
+  padding: 40px 30px 80px;
+}
+
+.seat-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.booking-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #9ca3af;
+  font-size: .95rem;
+  margin-bottom: 24px;
+}
+
+.active-step {
+  color: #ff4d6d;
+  font-weight: 700;
+}
+
+.booking-info {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.theatre-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.movie-meta {
+  margin-top: 10px;
+  color: #d1d5db;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.show-details {
+  margin-top: 6px;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.seat-layout-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.seat-layout {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.seat-legend {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-item p {
+  color: #d1d5db;
+  font-size: 14px;
+  margin: 0;
+}
+
+.legend-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.legend-box.available {
+  border-color: #22c55e;
+  background: transparent;
+}
+
+.legend-box.selected {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.legend-box.booked {
+  background: #4b5563;
+  border-color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .seat-legend {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .seat-selection-page {
+    padding: 24px 16px 60px;
+  }
+  .seat-container {
+    max-width: 100%;
+  }
+  .seat-layout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .seat-layout {
+    padding: 20px;
+  }
+  .seat-legend {
+    justify-content: center;
+  }
+  .theatre-name {
+    font-size: 1.5rem;
+  }
+}

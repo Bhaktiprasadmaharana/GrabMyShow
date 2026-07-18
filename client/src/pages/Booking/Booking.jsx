@@ -315,10 +315,15 @@ function Booking() {
 
           if (!selectedShow) return;
 
-          navigate(`/seat/${selectedShow._id}`, {
+          navigate(`/seat-selection/${selectedShow._id}`, {
             state: {
+              movie,
               show: selectedShow,
+              theatre: selectedShow.theatre,
               seatCount,
+              language: selectedMovieLanguage,
+              format: selectedMovieFormat,
+              bookingDate: bookingDates[selectedDateIndex],
             },
           });
         }}

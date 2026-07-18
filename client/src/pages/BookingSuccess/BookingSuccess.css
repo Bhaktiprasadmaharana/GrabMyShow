@@ -1,0 +1,259 @@
+.success-page{
+    min-height:100vh;
+    background:#0d0d10;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:120px 20px 60px;
+}
+
+.success-card{
+    width:100%;
+    max-width:700px;
+    background:#18181f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    color:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.success-card h1{
+    color:#22c55e;
+    margin-bottom:10px;
+    font-size:2.2rem;
+}
+
+.success-card>p{
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.ticket-details{
+    text-align:left;
+    background:#f8fafc;
+    border-radius:24px;
+    padding:24px;
+    margin-bottom:30px;
+    overflow:hidden;
+    position:relative;
+    color:#111827;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.ticket-details::before,
+.ticket-details::after{
+    content:"";
+    position:absolute;
+    width:34px;
+    height:34px;
+    background:#0d0d10;
+    border-radius:50%;
+    top:52%;
+    transform:translateY(-50%);
+}
+
+.ticket-details::before{
+    left:-17px;
+}
+
+.ticket-details::after{
+    right:-17px;
+}
+
+.ticket-header{
+    margin-bottom:24px;
+}
+
+.ticket-header h2{
+    font-size:1.8rem;
+    margin:0 0 14px;
+    line-height:1.3;
+    color:#111827;
+}
+
+
+.ticket-movie-info{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+}
+
+.ticket-movie-poster{
+    width:120px;
+    flex-shrink:0;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+.ticket-movie-poster img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+}
+
+.ticket-movie-content{
+    flex:1;
+    min-width:0;
+    padding-top:4px;
+    padding-left:20px;
+}
+
+.ticket-movie-content h2{
+    margin:0 0 12px;
+    padding-left:2px;
+}
+
+.ticket-movie-tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+
+.ticket-movie-tags span{
+    background:#ff4d6d;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:.8rem;
+    font-weight:600;
+}
+
+.ticket-movie-content p{
+    display:block;
+    border:none;
+    padding:4px 0;
+    color:#4b5563;
+}
+
+.seat-chip{
+    background:#ff4d6d;
+    color:#fff;
+    padding:6px 16px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+.screen-section{
+    text-align:center;
+    margin:18px 0 28px;
+}
+
+.screen-section small{
+    color:#9ca3af;
+    display:block;
+    margin-bottom:6px;
+}
+
+.screen-section h3{
+    margin:0;
+    letter-spacing:3px;
+    color:#ef4444;
+}
+
+.ticket-details strong{
+    color:#111827;
+    font-weight:700;
+}
+
+.ticket-details p{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    color:#111827;
+}
+
+.ticket-details p:last-child{
+    border-bottom:none;
+}
+
+.ticket-divider{
+    margin:28px -24px;
+    border-top:2px dashed #d1d5db;
+}
+
+.ticket-actions{
+    margin-top:10px;
+}
+
+.qr-section{
+    display:flex;
+    justify-content:center;
+    margin:30px 0;
+}
+
+.qr-section canvas{
+    background:#fff;
+    padding:16px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.download-btn{
+    width:100%;
+    height:54px;
+    border:none;
+    border-radius:12px;
+    background:#ff4d6d;
+    color:#fff;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.download-btn:hover{
+    background:#ff2d55;
+    transform:translateY(-2px);
+}
+
+@media (max-width:768px){
+    .success-card{
+        padding:24px;
+    }
+
+    .success-card h1{
+        font-size:1.8rem;
+    }
+
+    .ticket-details p{
+        flex-direction:column;
+        gap:6px;
+    }
+
+    .ticket-header h2{
+        font-size:1.5rem;
+    }
+
+    .ticket-divider{
+        margin:24px -24px;
+    }
+
+    .ticket-movie-info{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .ticket-movie-poster{
+        width:140px;
+    }
+
+    .ticket-movie-poster img{
+        width:100%;
+        height:210px;
+    }
+
+    .ticket-movie-tags{
+        justify-content:center;
+    }
+    .ticket-movie-content{
+        padding-left:0;
+    }
+}
